@@ -22,6 +22,7 @@ def create_app(config_class=Config):
     login_manager.init_app(app)
     mail.init_app(app)
     with app.app_context():
+         db.create_all()
          from learncrypto.users.routes import users
          from learncrypto.posts.routes import posts
          from learncrypto.main.routes import main
@@ -30,6 +31,6 @@ def create_app(config_class=Config):
          app.register_blueprint(posts)
          app.register_blueprint(main)
          app.register_blueprint(errors)
-         db.create_all()
+         
 
          return app
