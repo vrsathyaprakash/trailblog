@@ -1,4 +1,4 @@
-from learncrypto import create_app
+from learncrypto import db,create_app
 
 app = create_app()
 
